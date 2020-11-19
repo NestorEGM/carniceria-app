@@ -1,0 +1,169 @@
+nav {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color);
+  z-index: 10;
+}
+
+.navbar_background1 {
+  display: none;
+}
+
+.navbar_background2 {
+  display: none;
+}
+
+ul.navbar__links {
+  order: 2;
+  position: relative;
+  height: 40px;
+  width: 35%;
+  /* background-color: var(--primary-color); */
+  display: flex;
+  align-items: center;
+}
+
+li {
+  flex: 1;
+  align-self: stretch;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar__link {
+  text-decoration: none;
+  color: white;
+}
+
+.navbar_logoWrapper {
+  display: none;
+}
+
+.navbar__logo {
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  order: 1;
+  height: 50px;
+  width: 50px;
+  border: 1px solid #fff;
+
+}
+
+.navbar__logo__text {
+  text-align: center;
+  color: #fff;
+  font-family: 'Lobster', cursive;
+  font-size: 10px;
+}
+
+@media only screen and (min-width: 600px) {
+  nav {
+    height: 75px;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navbar_background1 {
+    display: block;
+    position: absolute;
+    height: 50%;
+    width: 100%;
+    top: 0;
+    background-color: #000;
+    opacity: 0.1;
+  }
+  
+  .navbar_background2 {
+    display: block;
+    position: absolute;
+    height: 50%;
+    width: 100%;
+    bottom: 0;
+    background-color: #000;
+    opacity: 0.1;
+  }
+
+  ul.navbar__links {
+    order: 0;
+    position: relative;
+    height: 30px;
+    width: 32.5%;
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar_logoWrapper {
+    display: block;
+    position: relative;
+    height: 30px;
+    width: 15%;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navbar__logo {
+    order: 0;
+    position: absolute;
+    height: 75px;
+    width: 75px;
+    border: 2px solid #fff;
+  }
+
+  .navbar__logo__text {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  nav {
+    height: 100px;
+  }
+
+  ul.navbar__links {
+    height: 40px;
+  }
+
+  .navbar_logoWrapper {
+    height: 40px;
+  }
+
+  .navbar__logo {
+    height: 100px;
+    width: 100px;
+  }
+
+  .navbar__logo__text {
+    font-size: 20px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  ul.navbar__links {
+    width: 34%;
+  }
+
+  .navbar_logoWrapper {
+    width: 12%;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  ul.navbar__links {
+    width: 35%;
+  }
+
+  .navbar_logoWrapper {
+    width: 10%;
+  }
+}

@@ -1,0 +1,140 @@
+.coverPage {
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 200vh;
+}
+
+.coverPage__textWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+  box-sizing: border-box;
+}
+
+.coverPage__text1 {
+  font-family: 'Alfa Slab One', cursive;
+  text-decoration-line: underline;
+  font-size: 25px;
+  text-align: center;
+  margin-bottom: 120px;
+}
+
+.getin {
+  animation: fadein 2s, slidein 2s;
+}
+
+.fadein {
+  animation: fadein 2s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.slidein {
+  animation: slidein 2s;
+}
+
+@keyframes slidein {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.orderButton {
+  /* position: sticky;
+  top: 25px; */
+  position: relative;
+  font-size: 15px;
+  padding: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: color 500ms ease-in-out;
+  z-index: 1;
+}
+
+.orderButton:hover {
+  background-color: var(--secondary-color);
+  color: #000;
+}
+
+.orderButton:focus {
+  background-color: var(--primary-color);
+  color: #000;
+}
+
+.orderButton::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 100%;
+  width: 0;
+  transform: translate(-50%, -50%);
+  background-color: var(--primary-color);
+  transition: width 500ms ease-in-out;
+  z-index: -1;
+}
+
+.orderButton:hover::before {
+  width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+  .coverPage__text1 {
+    font-size: 30px;
+    margin-bottom: 120px;
+  }
+  .orderButton {
+    font-size: 17.5px;
+    padding: 12.5px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .coverPage__text1 {
+    font-size: 35px;
+    margin-bottom: 100px;
+  }
+
+  .orderButton {
+    font-size: 20px;
+    padding: 13px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .coverPage__text1 {
+    font-size: 40px;
+    margin-bottom: 80px;
+  }
+
+  .orderButton {
+    font-size: 22.5px;
+    padding: 15px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .coverPage__text1 {
+    font-size: 50px;
+    margin-bottom: 50px;
+  }
+
+  .orderButton {
+    font-size: 25px;
+    padding: 17.5px;
+  }
+}
