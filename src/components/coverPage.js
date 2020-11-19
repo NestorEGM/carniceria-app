@@ -25,7 +25,7 @@ const CoverPage = () => {
       </div> */}
       <div className={`${style.coverPage__textWrapper}`}>
         <h1 className={`${style.coverPage__text1} ${style.getin}`} data-text="El mejor corte lo encuentras aqui!">El mejor corte lo encuentras aqui!</h1>
-        <button className={style.orderButton} onClick={() => {
+        <button className={`${style.orderButton} ${style.buttonEntrance}`} onClick={() => {
           console.log('Click!!!!!!!!!!!!!!');
         }}>
           Haz tu pedido!

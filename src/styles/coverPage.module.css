@@ -65,6 +65,25 @@
   z-index: 1;
 }
 
+.buttonEntrance {
+  animation: buttonEntrance 2s ease 2s;
+  animation-fill-mode: backwards;
+}
+
+@keyframes buttonEntrance {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 .orderButton:hover {
   background-color: var(--secondary-color);
   color: #000;
