@@ -1,17 +1,21 @@
 import './App.css';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import Home from './pages/home';
+import Order from './pages/order';
 
 function App() {
   return (
     // <div className="App">
     <Switch>
-      <Route exact path="/">
+      <Route exact path="/" >
+        <Redirect to="/inicio/" />
+      </Route>
+      <Route path="/inicio">
         <Home />
       </Route>
-      {/* <Route exact path="/login">
-        <Login />
-      </Route> */}
+      <Route path="/order">
+        <Order />
+      </Route>
     </Switch>
     // </div>
   );
