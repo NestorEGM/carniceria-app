@@ -2,6 +2,7 @@ import './App.css';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Home from './pages/home';
 import Order from './pages/order';
+import Signup from './pages/signup';
 
 function App() {
   return (
@@ -15,6 +16,9 @@ function App() {
       </Route>
       <Route path="/order">
         <Order />
+      </Route>
+      <Route path="/signup">
+        <Signup />
       </Route>
     </Switch>
     // </div>
