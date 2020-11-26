@@ -15,8 +15,8 @@ const Navbar = () => {
       <div className={style.navbar_logoWrapper}>
       </div>
       <ul className={style.navbar__links}>
-        <li><NavLink to="/" className={style.navbar__link}>Otro</NavLink></li>
         <li><NavLink to="/" className={style.navbar__link}>Acerca de</NavLink></li>
+        <li><NavLink to="/signup" className={style.navbar__link}>Registrarse</NavLink></li>
       </ul>
       <Logo />
     </nav>

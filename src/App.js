@@ -20,6 +20,11 @@ function App() {
       <Route path="/signup">
         <Signup />
       </Route>
+      <Route>
+        <div>
+          Error 404!
+        </div>
+      </Route>
     </Switch>
     // </div>
   );

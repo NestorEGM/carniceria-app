@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { signup } from '../redux/features/userSlice';
 
 const Signup = () => {
+  const dispatch = useDispatch();
+  const { fetching, error, payload } = useSelector(state => state.user);
+  console.log(payload);
   const [user, setUser] = useState({
     name: '',
     lastName: '',
@@ -13,10 +18,11 @@ const Signup = () => {
   return (
     <div>
       <form onSubmit={e => {
-        console.log('Registrado!');
-        console.log(user);
+        dispatch(signup(user));
         e.preventDefault();
       }}>
+        {fetching && <h1>Cargando...</h1>}
+        {error && <h1>{error.message}</h1>}
         <label htmlFor="name">Nombre:</label>
         <input type="text" name="name" id="name" value={user.name} onChange={e => handleUser({ name: e.target.value })} />
         <label htmlFor="lastName">Apellido:</label>
