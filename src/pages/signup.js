@@ -1,38 +1,49 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { signup } from '../redux/features/userSlice';
+import * as Yup from 'yup';
 
 const Signup = () => {
   const dispatch = useDispatch();
   const { fetching, error, payload } = useSelector(state => state.user);
   // console.log(payload);
-  const [user, setUser] = useState({
-    name: '',
-    lastName: '',
-    email: '',
-    password: '',
-  });
-  const handleUser = (value) => {
-    setUser({ ...user, ...value });
-  };
   return (
     <div>
-      <form onSubmit={e => {
-        dispatch(signup(user));
-        e.preventDefault();
-      }}>
-        {fetching && <h1>Cargando...</h1>}
-        {error && <h1>{error.message}</h1>}
-        <label htmlFor="name">Nombre:</label>
-        <input type="text" name="name" id="name" value={user.name} onChange={e => handleUser({ name: e.target.value })} />
-        <label htmlFor="lastName">Apellido:</label>
-        <input type="text" name="lastName" id="lastName" value={user.lastName} onChange={e => handleUser({ lastName: e.target.value })} />
-        <label htmlFor="email">Correo:</label>
-        <input type="text" name="email" id="email" value={user.email} onChange={e => handleUser({ email: e.target.value })} />
-        <label htmlFor="password">Contraseña:</label>
-        <input type="password" name="password" id="password" value={user.password} onChange={e => handleUser({ password: e.target.value })} />
-        <button>Registrarse</button>
-      </form>
+      <Formik
+        initialValues={{
+          firstName: '',
+          lastName: '',
+          email: '',
+          password: '',
+        }}
+        validationSchema={Yup.object({
+          firstName: Yup.string().required('El nombre es obligatorio'),
+          lastName: Yup.string().required('El apellido es obligatorio'),
+          email: Yup.string().email('Correo invalido').required('El correo es obligatorio'),
+          password: Yup.string().min(8, 'Debe de contener 8 caracteres minimo').required('La contraseña es obligatoria'),
+        })}
+        onSubmit={(values, { setSubmitting }) => {
+          dispatch(signup(values));
+          setSubmitting(false);
+        }}
+      >
+        <Form>
+          <label htmlFor="firstName">Nombre:</label>
+          <Field name="firstName" type="text" />
+          <ErrorMessage name="firstName" />
+          <label htmlFor="lastName">Apellido:</label>
+          <Field name="lastName" type="text" />
+          <ErrorMessage name="lastName" />
+          <label htmlFor="email">Correo:</label>
+          <Field name="email" type="text" />
+          <ErrorMessage name="email" />
+          <label htmlFor="password">Contraseña:</label>
+          <Field name="password" type="password" />
+          <ErrorMessage name="password" />
+          <button type="submit">Registrarse</button>
+        </Form>
+      </Formik>
     </div>
   );
 };

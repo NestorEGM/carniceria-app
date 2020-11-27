@@ -31,17 +31,17 @@ const userSlice = createSlice({
 
 const { fetching, success, error } = userSlice.actions;
 
-export const signup = ({ name, lastName, email, password }) => async dispatch => {
+export const signup = ({ firstName, lastName, email, password }) => async dispatch => {
   dispatch(fetching());
   try {
     const resp = await axios.post('http://localhost:3000/signup', {
-      name,
+      firstName,
       lastName,
       email,
       password,
     });
     if (resp.ok) {
-      dispatch(success({ name, lastName, email, password }));
+      dispatch(success({ firstName, lastName, email, password }));
     } else {
       dispatch(error({ message: resp.message }));
     }
@@ -49,7 +49,7 @@ export const signup = ({ name, lastName, email, password }) => async dispatch =>
     //   throw new Error('Something went wrong');
     // }, 3000);
     // setTimeout(() => {
-    //   dispatch(success({ name, lastName, email, password }));
+    //   dispatch(success({ firstName, lastName, email, password }));
     // }, 3000);
   } catch (err) {
     dispatch(error({ message: err.message }));

@@ -4,6 +4,8 @@ import Home from './pages/home';
 import Order from './pages/order';
 import Signup from './pages/signup';
 
+// TODO - Add .env file to change de PORT to 5000
+
 function App() {
   return (
     // <div className="App">
