@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 const userSlice = createSlice({
   name: 'user',
@@ -30,15 +31,26 @@ const userSlice = createSlice({
 
 const { fetching, success, error } = userSlice.actions;
 
-export const signup = ({ name, lastName, email, password }) => dispatch => {
+export const signup = ({ name, lastName, email, password }) => async dispatch => {
   dispatch(fetching());
   try {
+    const resp = await axios.post('http://localhost:3000/signup', {
+      name,
+      lastName,
+      email,
+      password,
+    });
+    if (resp.ok) {
+      dispatch(success({ name, lastName, email, password }));
+    } else {
+      dispatch(error({ message: resp.message }));
+    }
     // setTimeout(() => {
     //   throw new Error('Something went wrong');
     // }, 3000);
-    setTimeout(() => {
-      dispatch(success({ name, lastName, email, password }));
-    }, 3000);
+    // setTimeout(() => {
+    //   dispatch(success({ name, lastName, email, password }));
+    // }, 3000);
   } catch (err) {
     dispatch(error({ message: err.message }));
   }

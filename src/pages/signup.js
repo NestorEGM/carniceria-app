@@ -5,7 +5,7 @@ import { signup } from '../redux/features/userSlice';
 const Signup = () => {
   const dispatch = useDispatch();
   const { fetching, error, payload } = useSelector(state => state.user);
-  console.log(payload);
+  // console.log(payload);
   const [user, setUser] = useState({
     name: '',
     lastName: '',
@@ -28,7 +28,7 @@ const Signup = () => {
         <label htmlFor="lastName">Apellido:</label>
         <input type="text" name="lastName" id="lastName" value={user.lastName} onChange={e => handleUser({ lastName: e.target.value })} />
         <label htmlFor="email">Correo:</label>
-        <input type="email" name="email" id="email" value={user.email} onChange={e => handleUser({ email: e.target.value })} />
+        <input type="text" name="email" id="email" value={user.email} onChange={e => handleUser({ email: e.target.value })} />
         <label htmlFor="password">Contraseña:</label>
         <input type="password" name="password" id="password" value={user.password} onChange={e => handleUser({ password: e.target.value })} />
         <button>Registrarse</button>
