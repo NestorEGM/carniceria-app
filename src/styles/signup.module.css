@@ -1,0 +1,79 @@
+.signup {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* TODO - Modify padding in all media queries */
+.signup form {
+  background-color: var(--secondary-color);
+  height: 80%;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  border-radius: 3px;
+  box-shadow: none;
+  transform: translate(0, 0);
+  transition: box-shadow 700ms ease, transform 700ms ease;
+}
+
+.signup form:hover {
+  box-shadow: -5px 5px rgba(232, 88, 7, 0.5), -10px 10px rgba(232, 88, 7, 0.4), -15px 15px rgba(232, 88, 7, 0.3), -20px 20px rgba(232, 88, 7, 0.2);
+  /* box-shadow: -8px 8px rgba(0, 0, 0, 0.2); */
+  transform: translate(8px, -8px);
+}
+
+.signup__titleSection {
+  display: flex;
+  align-items: center;
+}
+
+.signup__titleSection__titlewrapper {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup__titleSection__titlewrapper h1 {
+  color: var(--light-color);
+  font-size: 20px;
+}
+
+.signup__inputsSection {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+}
+
+.signup form button {
+  border: 2px solid #d04f06;
+}
+
+@media only screen and (min-width: 600px) {
+  .signup form {
+    width: 60%;
+    padding: 15px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .signup form {
+    width: 50%;
+    padding: 15px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .signup form {
+    width: 40%;
+    padding: 15px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .signup form {
+    width: 30%;
+    padding: 15px;
+  }
+}

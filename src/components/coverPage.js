@@ -1,9 +1,14 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import style from '../styles/coverPage.module.css';
 
 const img = '/assets/img/header-home.jpg';
 
 const CoverPage = () => {
+  const history = useHistory();
+  const handleClick = () => {
+    history.push('/order');
+  }
   return (
     <div className={style.coverPage} style={{ backgroundImage: `url(${img})` }}>
       {/* <div style={{
@@ -25,9 +30,7 @@ const CoverPage = () => {
       </div> */}
       <div className={`${style.coverPage__textWrapper}`}>
         <h1 className={`${style.coverPage__text1} ${style.getin}`} data-text="El mejor corte lo encuentras aqui!">El mejor corte lo encuentras aqui!</h1>
-        <button className={`${style.orderButton} ${style.buttonEntrance}`} onClick={() => {
-          console.log('Click!!!!!!!!!!!!!!');
-        }}>
+        <button className={`${style.orderButton} ${style.buttonEntrance}`} onClick={handleClick}>
           Haz tu pedido!
         </button>
       </div>
