@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Logo from '../components/logo';
+// import Logo from '../components/logo';
 import style from '../styles/order.module.css';
 
 const OrderPage = () => {
