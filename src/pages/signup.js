@@ -1,15 +1,18 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { useDispatch } from 'react-redux';
+import { Formik, Form } from 'formik';
 import { signup } from '../redux/features/userSlice';
 import * as Yup from 'yup';
+import style from '../styles/signup.module.css';
+import Logo from '../components/logo';
+import Input from '../components/form/input';
 
 const Signup = () => {
   const dispatch = useDispatch();
-  const { fetching, error, payload } = useSelector(state => state.user);
+  // const { fetching, error, payload } = useSelector(state => state.user);
   // console.log(payload);
   return (
-    <div>
+    <section className={style.signup}>
       <Formik
         initialValues={{
           firstName: '',
@@ -29,22 +32,25 @@ const Signup = () => {
         }}
       >
         <Form>
-          <label htmlFor="firstName">Nombre:</label>
-          <Field name="firstName" type="text" />
-          <ErrorMessage name="firstName" />
-          <label htmlFor="lastName">Apellido:</label>
-          <Field name="lastName" type="text" />
-          <ErrorMessage name="lastName" />
-          <label htmlFor="email">Correo:</label>
-          <Field name="email" type="text" />
-          <ErrorMessage name="email" />
-          <label htmlFor="password">Contraseña:</label>
-          <Field name="password" type="password" />
-          <ErrorMessage name="password" />
-          <button type="submit">Registrarse</button>
+          <section className={style.signup__titleSection}>
+            <Logo style={{ order: 0 }} />
+            <div className={style.signup__titleSection__titlewrapper}>
+              <h1>¡Registrate!</h1>
+            </div>
+          </section>
+          <section className={style.signup__inputsSection}>
+            <Input name="firstName" type="text" label="Nombre" />
+            <Input name="lastName" type="text" label="Apellido" />
+            <Input name="email" type="email" label="Correo" />
+            <Input name="password" type="password" label="Contraseña" />
+            <button style={{
+              marginTop: 25,
+              marginBottom: 25,
+            }} type="submit">Registrarse</button>
+          </section>
         </Form>
       </Formik>
-    </div>
+    </section>
   );
 };
 
