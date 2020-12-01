@@ -40,10 +40,6 @@ li {
   color: white;
 }
 
-.navbar_logoWrapper {
-  display: none;
-}
-
 @media only screen and (min-width: 600px) {
   nav {
     height: 75px;
@@ -83,7 +79,6 @@ li {
   }
 
   .navbar_logoWrapper {
-    display: block;
     position: relative;
     height: 30px;
     width: 15%;

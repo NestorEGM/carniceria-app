@@ -22,7 +22,6 @@
 @media only screen and (min-width: 600px) {
   .logo {
     order: 0;
-    position: absolute;
     height: 75px;
     width: 75px;
     border: 2px solid #fff;
