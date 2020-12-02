@@ -3,6 +3,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import Home from './pages/home';
 import Order from './pages/order';
 import Signup from './pages/signup';
+import Login from './pages/login';
 
 // TODO - Add .env file to change de PORT to 5000
 
@@ -21,6 +22,9 @@ function App() {
       </Route>
       <Route path="/signup">
         <Signup />
+      </Route>
+      <Route path="/login">
+        <Login />
       </Route>
       <Route>
         <div>

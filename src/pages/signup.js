@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Formik, Form } from 'formik';
+import { Link } from 'react-router-dom'
 import { signup } from '../redux/features/userSlice';
 import * as Yup from 'yup';
 import style from '../styles/signup.module.css';
@@ -43,6 +44,7 @@ const Signup = () => {
             <Input name="lastName" type="text" label="Apellido" />
             <Input name="email" type="email" label="Correo" />
             <Input name="password" type="password" label="Contraseña" />
+            <p>Ya tienes una cuenta? <Link to="/login">Inicia sesion</Link></p>
             <button style={{
               marginTop: 25,
               marginBottom: 25,

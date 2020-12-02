@@ -1,5 +1,4 @@
 .logo {
-  background-color: var(--secondary-color);
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -8,15 +7,30 @@
   order: 1;
   height: 50px;
   width: 50px;
-  border: 1px solid #fff;
+}
 
+.logo_normal {
+  background-color: var(--secondary-color);
+  border: 1px solid #fff;
+}
+
+.logo_inverted {
+  background-color: #fff;
+  border: 1px solid var(--secondary-color);
 }
 
 .logo__text {
   text-align: center;
-  color: #fff;
   font-family: 'Lobster', cursive;
   font-size: 10px;
+}
+
+.logo__text_normal {
+  color: #fff;
+}
+
+.logo__text_inverted {
+  color: var(--primary-color);
 }
 
 @media only screen and (min-width: 600px) {
@@ -24,7 +38,14 @@
     order: 0;
     height: 75px;
     width: 75px;
+  }
+
+  .logo_normal {
     border: 2px solid #fff;
+  }
+  
+  .logo_inverted {
+    border: 2px solid var(--secondary-color);
   }
 
   .logo__text {
